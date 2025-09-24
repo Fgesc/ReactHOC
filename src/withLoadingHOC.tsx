@@ -7,12 +7,12 @@ type WithLoadingProps = {
 };
 
 
-export function withLoading<T extends object>(WrappedComponent: ComponentType<T>): ComponentType<T & WithLoadingProps> {
+export function withLoading<P extends object>(WrappedComponent: ComponentType<P>): ComponentType<P & WithLoadingProps> {
   return ({ isLoading, ...restProps }) => {
     if (isLoading) {
       return <Loader />;
     }
-    return <WrappedComponent {...(restProps as T)} />;
+    return <WrappedComponent {...(restProps as P)} />;
   };
 }
 
