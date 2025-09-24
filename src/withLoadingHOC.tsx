@@ -12,9 +12,10 @@ export function withLoading<T extends object>(WrappedComponent: ComponentType<T>
     if (isLoading) {
       return <Loader />;
     }
-    return <WrappedComponent {...restProps as T} />;
+    return <WrappedComponent {...(restProps as T)} />;
   };
 }
+
 
 
 
